@@ -4,7 +4,7 @@ import './App.css';
 
 function ListPosts(props){
   return (
-    <div className="border-4 border-dark">
+    <div className="Border">
       <h2> {props.title} </h2>
       <p> {props.content}</p>
     </div>
@@ -45,7 +45,7 @@ class App extends Component {
       <div className="App">
         <h1>DeerDiary</h1>
         <h4> - a diary for deer</h4>
-        <div>
+        <div className="Border">
           {postList}
         </div>
       </div>
