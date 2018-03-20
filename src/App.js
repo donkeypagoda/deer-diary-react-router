@@ -38,7 +38,7 @@ class App extends Component {
   render() {
     let postList = []
     this.state.postList.forEach( post => {
-      postList.push(<ListPosts post={post} />)
+      postList.push(<ListPosts title={post.title} />)
     })
     return (
       <div className="App">
