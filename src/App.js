@@ -4,8 +4,9 @@ import './App.css';
 
 function ListPosts(props){
   return (
-    <div>
+    <div className="border-4 border-dark">
       <h2> {props.title} </h2>
+      <p> {props.content}</p>
     </div>
   )
 }
@@ -38,7 +39,7 @@ class App extends Component {
   render() {
     let postList = []
     this.state.postList.forEach( post => {
-      postList.push(<ListPosts title={post.title} />)
+      postList.push(<ListPosts title={post.title} content={post.content} />)
     })
     return (
       <div className="App">
