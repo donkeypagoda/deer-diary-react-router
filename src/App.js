@@ -36,6 +36,11 @@ class App extends Component {
       ]
     }
   }
+
+  newPost(){
+    console.log("tacos")
+  }
+
   render() {
     let postList = []
     this.state.postList.forEach( post => {
@@ -45,6 +50,7 @@ class App extends Component {
       <div className="App">
         <h1>DeerDiary</h1>
         <h4> - a diary for deer</h4>
+        <button type="button" onClick={() => this.newPost()}>New Entry</button>
         <div className="Border">
           {postList}
         </div>
