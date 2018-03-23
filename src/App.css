@@ -1,7 +1,9 @@
 .App {
-  text-align: center;
+  text-align: left;
+  font-family: monaco, Consolas, "Lucida Console", monospace;
+  margin-bottom: 50px;
 }
-
+/*
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -25,10 +27,10 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+}*/
 
-.Border{
+/*.Border{
   border: solid 2px;
   border-color: green;
   text-align: left;
-}
+}*/

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function ListPosts(props){
   return (
-    <div className="Border">
+    <div className='border'>
       <h2> {props.title} </h2>
       <p> {props.content}</p>
     </div>
@@ -48,11 +47,13 @@ class App extends Component {
     })
     return (
       <div className="App">
-        <h1>DeerDiary</h1>
-        <h4> - a diary for deer</h4>
-        <button type="button" onClick={() => this.newPost()}>New Entry</button>
-        <div className="Border">
-          {postList}
+        <div className="jumbotron">
+          <h1>DeerDiary</h1>
+          <h4> - a diary for deer</h4>
+        </div>
+          <button type="button" onClick={() => this.newPost()}>New Entry</button>
+          <div className="border">
+            {postList}
         </div>
       </div>
     );
