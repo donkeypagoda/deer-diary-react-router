@@ -42,12 +42,14 @@ class App extends Component {
       ],
       showForm: false,
       showButt: true,
+      showPosts: true
     }
   }
   newButt(){
     this.setState({
       showForm: !this.state.showForm,
-      showButt: !this.state.showButt
+      showButt: !this.state.showButt,
+      showPosts: !this.state.showPosts
     })
   }
 
@@ -77,7 +79,9 @@ class App extends Component {
               this.state.showButt ? <button type="button" onClick={() => this.newButt()}>New Entry</button> : null
             }
           <div className="border">
-            {postList}
+            {
+              this.state.showPosts ? postList : null
+            }
         </div>
       </div>
     );
