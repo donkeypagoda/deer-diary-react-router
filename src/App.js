@@ -64,9 +64,13 @@ class App extends Component {
           <h4> - a diary for deer</h4>
         </div>
           <div>
-            {showForm}
+            {
+              this.state.showForm ? <NewPost /> : null
+            }
           </div>
-          <button type="button" onClick={() => this.postButt()}>New Entry</button>
+            {
+              this.state.showButt ? <button type="button" onClick={() => this.postButt()}>New Entry</button> : null
+            }
           <div className="border">
             {postList}
         </div>
