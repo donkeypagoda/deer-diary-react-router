@@ -24,7 +24,7 @@ class App extends Component {
         },
         {
           timestamp: '2012-02-20 16:28:32',
-          title: "There is a mean bear named Rodzher in the forest",
+          title: "There is a bear named Rodzher in the forest",
           content: "watch out cause if he catches you he will make you listen to all of his puns and also he likes venison"
         },
         {
