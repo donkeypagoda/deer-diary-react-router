@@ -34,14 +34,14 @@ class App extends Component {
           content: "of course they do, everyone loves tacos what a silly question, what are you a bear???"
         }
       ],
-      postForm = false
+      postForm: false
     }
   }
   newPost(){
     this.setState({
-      this.state.postForm = !this.state.postForm
-      console.log(this.state.postForm)
+      postForm: !this.state.postForm
     })
+    console.log(this.state.postForm)
   }
 
   render() {
