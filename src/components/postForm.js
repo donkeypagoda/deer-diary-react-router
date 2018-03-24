@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NewPost = (state, props) => {
+const PostForm = (state, props) => {
   return (
     <form>
       HAYO
@@ -9,4 +9,4 @@ const NewPost = (state, props) => {
 }
 
 
-export default NewPost
+export default PostForm
