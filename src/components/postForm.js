@@ -11,13 +11,14 @@ const PostForm = (state, props) => {
         <div className="col-md-12">
           <form name="newBlogPost" onSubmit={submitPost}>
             <div className="form-group">
-              <label>Entry Title</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="newPostTitle"
-                />
+              <label>Diary Entry Title</label>
+                <input type="text" className="form-control" name="newPostTitle" />
             </div>
+            <div className="form-group">
+              <label>Diary Entry Body</label>
+                <textarea className="form-control" name="newPostBody" />
+            </div>
+              <button type="submit" className="btn btn-secondary"> Create New Entry</button>
           </form>
         </div>
       </div>
