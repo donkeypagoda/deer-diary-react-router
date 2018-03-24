@@ -53,6 +53,7 @@ class App extends Component {
       showPosts: true,
       showReturn: false
     }
+
   }
   toggleButt(){
     this.setState({
@@ -85,10 +86,16 @@ class App extends Component {
               this.state.showForm ? <PostForm /> : null
             }
           </div>
-          <div>
-            {
-              this.state.showButt ? <button type="button" onClick={() => this.toggleButt()}>New Entry</button> : null
-            }
+          <div className="container">
+            <div className="row lift">
+              <div className="col-md-12">
+                <div className="float-right">
+                  {
+                    this.state.showButt ? <button type="button" className="btn btn-secondary" onClick={() => this.toggleButt()}>New Entry</button> : null
+                  }
+                </div>
+              </div>
+            </div>
           </div>
           <div className="container">
             <div className="row">
