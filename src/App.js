@@ -60,8 +60,11 @@ class App extends Component {
     return (
       <div className="App">
         <div className="jumbotron">
-          <h1>DeerDiary</h1>
-          <h4> - a diary for deer</h4>
+          <div className="container">
+            <div className="row">
+              <div className="display-3">DeerDiary - a diary for deer</div>
+            </div>
+          </div>
         </div>
           <div>
             {
