@@ -34,14 +34,13 @@ class App extends Component {
           content: "of course they do, everyone loves tacos what a silly question, what are you a bear???"
         }
       ],
-      postForm: true
+      postForm: false
     }
   }
   newPost(){
     this.setState({
       postForm: !this.state.postForm
     })
-    console.log(this.state.postForm)
   }
 
   render() {
@@ -49,13 +48,22 @@ class App extends Component {
     this.state.postList.forEach( post => {
       postList.push(<ListPosts title={post.title} content={post.content} />)
     })
+    let showForm = []
+    if (this.state.postForm){
+      showForm.push(<NewPost />)
+    }
+    else{
+      showForm = []
+    }
     return (
       <div className="App">
         <div className="jumbotron">
           <h1>DeerDiary</h1>
           <h4> - a diary for deer</h4>
         </div>
-          <NewPost />
+          <div>
+            {showForm}
+          </div>
           <button type="button" onClick={() => this.newPost()}>New Entry</button>
           <div className="border">
             {postList}
