@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import NewPost from './components/newPost'
 
 function ListPosts(props){
   return (
@@ -32,12 +33,15 @@ class App extends Component {
           title: "Do deer like tacos?",
           content: "of course they do, everyone loves tacos what a silly question, what are you a bear???"
         }
-      ]
+      ],
+      postForm = false
     }
   }
-
   newPost(){
-    console.log("tacos")
+    this.setState({
+      this.state.postForm = !this.state.postForm
+      console.log(this.state.postForm)
+    })
   }
 
   render() {
@@ -51,6 +55,7 @@ class App extends Component {
           <h1>DeerDiary</h1>
           <h4> - a diary for deer</h4>
         </div>
+          <NewPost />
           <button type="button" onClick={() => this.newPost()}>New Entry</button>
           <div className="border">
             {postList}
