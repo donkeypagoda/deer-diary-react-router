@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import PostForm from './components/postForm'
+import moment from 'moment'
 
 function ListPosts(props){
   return (
@@ -10,6 +11,7 @@ function ListPosts(props){
           <h5 className="mb-1">
             {props.title}
           </h5>
+          <small>{moment(props.timestamp).format("MMM Do YY")}</small>
         </div>
         <div className="mb-1">
           {props.content}
