@@ -62,7 +62,9 @@ class App extends Component {
         <div className="jumbotron">
           <div className="container">
             <div className="row">
-              <div className="display-3">DeerDiary - a diary for deer</div>
+              <div className="display-3">DeerDiary
+                <span className="display-9 trailer"> - a diary for deer</span>
+              </div>
             </div>
           </div>
         </div>
