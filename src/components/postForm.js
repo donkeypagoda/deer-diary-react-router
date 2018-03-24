@@ -3,7 +3,8 @@ import React from 'react'
 const PostForm = (state, props) => {
   const submitPost = (e) => {
     e.preventDefault()
-    console.log(e.target)
+    console.log(e.target[0].value)
+    console.log(e.target[1].value)
   }
   return (
     <div className="container">
