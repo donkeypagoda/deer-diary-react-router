@@ -40,12 +40,14 @@ class App extends Component {
           content: "of course they do, everyone loves tacos what a silly question, what are you a bear???"
         }
       ],
-      postForm: false
+      showForm: false,
+      showButt: true,
     }
   }
-  newPost(){
+  postButt(){
     this.setState({
-      postForm: !this.state.postForm
+      showForm: !this.state.showForm,
+      showButt: !this.state.showButt
     })
   }
 
@@ -54,13 +56,7 @@ class App extends Component {
     this.state.postList.forEach( post => {
       postList.push(<ListPosts key={post.id} title={post.title} content={post.content} date={post.timestamp}/>)
     })
-    let showForm = []
-    if (this.state.postForm){
-      showForm.push(<NewPost />)
-    }
-    else{
-      showForm = []
-    }
+
     return (
       <div className="App">
         <div className="jumbotron">
@@ -70,7 +66,7 @@ class App extends Component {
           <div>
             {showForm}
           </div>
-          <button type="button" onClick={() => this.newPost()}>New Entry</button>
+          <button type="button" onClick={() => this.postButt()}>New Entry</button>
           <div className="border">
             {postList}
         </div>
