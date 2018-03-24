@@ -5,11 +5,17 @@ import PostForm from './components/postForm'
 function ListPosts(props){
   return (
     <div className='list-group'>
-    <div>
-      <h2> {props.title} </h2>
-      <h4> {props.date} </h4>
-    </div>
-      <p> {props.content}</p>
+      <div className="list-group-item flex-column align-items-start">
+        <div className="d-flex w-100 justify-content-between">
+          <h5 className="mb-1">
+            {props.title}
+          </h5>
+        </div>
+        <div className="mb-1">
+          {props.content}
+        </div>
+
+      </div>
     </div>
   )
 }
