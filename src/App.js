@@ -4,7 +4,7 @@ import PostForm from './components/postForm'
 
 function ListPosts(props){
   return (
-    <div className='border'>
+    <div className='list-group'>
     <div>
       <h2> {props.title} </h2>
       <h4> {props.date} </h4>
@@ -42,14 +42,16 @@ class App extends Component {
       ],
       showForm: false,
       showButt: true,
-      showPosts: true
+      showPosts: true,
+      showReturn: false
     }
   }
-  newButt(){
+  toggleButt(){
     this.setState({
       showForm: !this.state.showForm,
       showButt: !this.state.showButt,
-      showPosts: !this.state.showPosts
+      showPosts: !this.state.showPosts,
+      showReturn: !this.state.showReturn
     })
   }
 
@@ -75,13 +77,19 @@ class App extends Component {
               this.state.showForm ? <PostForm /> : null
             }
           </div>
+          <div>
             {
-              this.state.showButt ? <button type="button" onClick={() => this.newButt()}>New Entry</button> : null
+              this.state.showButt ? <button type="button" onClick={() => this.toggleButt()}>New Entry</button> : null
             }
-          <div className="border">
-            {
-              this.state.showPosts ? postList : null
-            }
+          </div>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12">
+                {
+                  this.state.showPosts ? postList : null
+                }
+              </div>
+            </div>
         </div>
       </div>
     );
