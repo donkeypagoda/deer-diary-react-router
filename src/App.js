@@ -34,7 +34,7 @@ class App extends Component {
           content: "of course they do, everyone loves tacos what a silly question, what are you a bear???"
         }
       ],
-      postForm: false
+      postForm: true
     }
   }
   newPost(){

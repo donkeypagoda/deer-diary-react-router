@@ -1,10 +1,14 @@
 import React from 'react'
 
-const NewPost = state => {
-
-  return(
-    <div>WUT</div>
-  )
+const NewPost = (state, props) => {
+  if (state.postForm === true){
+    return(
+      <div>WUT</div>
+    )
+  }
+  else{
+    return(null)
+  }
 }
 
 
