@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import NewPost from './components/newPost'
+import PostForm from './components/postForm'
 
 function ListPosts(props){
   return (
@@ -44,7 +44,7 @@ class App extends Component {
       showButt: true,
     }
   }
-  postButt(){
+  newButt(){
     this.setState({
       showForm: !this.state.showForm,
       showButt: !this.state.showButt
@@ -70,11 +70,11 @@ class App extends Component {
         </div>
           <div>
             {
-              this.state.showForm ? <NewPost /> : null
+              this.state.showForm ? <PostForm /> : null
             }
           </div>
             {
-              this.state.showButt ? <button type="button" onClick={() => this.postButt()}>New Entry</button> : null
+              this.state.showButt ? <button type="button" onClick={() => this.newButt()}>New Entry</button> : null
             }
           <div className="border">
             {postList}
