@@ -30,6 +30,9 @@ class App extends Component {
 
     this.toggleButt = this.toggleButt.bind(this)
     this.addPost = this.addPost.bind(this)
+    this.getPosts = this.getPosts.bind(this)
+    this.currentBlogList = this.getPosts()
+    console.log(this.currentBlogList)
     this.state = {
       postList: [
         {
@@ -58,12 +61,12 @@ class App extends Component {
   }
 
   getPosts = async () => {
-    const response = await fetch('/blog_posts/');
+    const response = await fetch('http://localhost:5000/blog_posts');
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
-
-    console.log(body)
+    
+    return body
   };
 
   toggleButt(){
