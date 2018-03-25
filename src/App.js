@@ -29,6 +29,7 @@ class App extends Component {
     super()
 
     this.toggleButt = this.toggleButt.bind(this)
+    this.addPost = this.addPost.bind(this)
 
     this.state = {
       postList: [
@@ -70,7 +71,10 @@ class App extends Component {
     newPost.id = this.state.postList.length
     current.push(newPost)
     this.setState({
-      postList: current
+      postList: current,
+      showForm: !this.state.showForm,
+      showButt: !this.state.showButt,
+      showPosts: !this.state.showPosts
     })
   }
 
