@@ -1,12 +1,23 @@
 import React, {Component} from 'react'
 
-const submitPost = (e) => {
-  e.preventDefault()
-  console.log(e.target[0].value)
-  console.log(e.target[1].value)
-}
-
 class PostForm extends Component {
+  constructor(props){
+    super(props)
+  }
+
+  submitPost = (e, props) => {
+    e.preventDefault()
+    console.log(e.target[0].value)
+    console.log(e.target[1].value)
+    let newPost = {
+      id: 0,
+      timestamp: Math.floor(Date.now() / 1000),
+      title: e.target[0].value,
+      content: e.target[1].value
+    }
+    this.props.postFunc(newPost)
+  }
+
   render(){
     return (
       <div className="container">
@@ -17,7 +28,7 @@ class PostForm extends Component {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <form name="newBlogPost" onSubmit={submitPost}>
+            <form name="newBlogPost" onSubmit={this.submitPost}>
               <div className="form-group">
                 <label>Diary Entry Title</label>
                   <input type="text" className="form-control" name="newPostTitle" />

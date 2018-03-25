@@ -33,19 +33,19 @@ class App extends Component {
     this.state = {
       postList: [
         {
-          id: 1,
+          id: 0,
           timestamp: '2012-02-18 14:28:32',
           title: "I ate the berries",
           content: "berries are so good and yummy and I like them because I am a deer"
         },
         {
-          id: 2,
+          id: 1,
           timestamp: '2012-02-20 16:28:32',
           title: "There is a bear named Rodzher in the forest",
           content: "watch out cause if he catches you he will make you listen to all of his puns and also he likes venison"
         },
         {
-          id: 3,
+          id: 2,
           timestamp: '2014-02-25 12:28:32',
           title: "Do deer like tacos?",
           content: "of course they do, everyone loves tacos what a silly question, what are you a bear???"
@@ -62,6 +62,15 @@ class App extends Component {
       showForm: !this.state.showForm,
       showButt: !this.state.showButt,
       showPosts: !this.state.showPosts
+    })
+  }
+
+  addPost(newPost){
+    let current = this.state.postList
+    newPost.id = this.state.postList.length
+    current.push(newPost)
+    this.setState({
+      postList: current
     })
   }
 
@@ -84,7 +93,7 @@ class App extends Component {
         </div>
           <div>
             {
-              this.state.showForm ? <PostForm action={this.toggleButt}/> : null
+              this.state.showForm ? <PostForm postFunc={this.addPost} action={this.toggleButt}/> : null
             }
           </div>
           <div className="container">
