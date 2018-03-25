@@ -27,6 +27,9 @@ function ListPosts(props){
 class App extends Component {
   constructor() {
     super()
+
+    this.toggleButt = this.toggleButt.bind(this)
+
     this.state = {
       postList: [
         {
@@ -50,17 +53,15 @@ class App extends Component {
       ],
       showForm: false,
       showButt: true,
-      showPosts: true,
-      showReturn: false
+      showPosts: true
     }
-
   }
+
   toggleButt(){
     this.setState({
       showForm: !this.state.showForm,
       showButt: !this.state.showButt,
-      showPosts: !this.state.showPosts,
-      showReturn: !this.state.showReturn
+      showPosts: !this.state.showPosts
     })
   }
 
@@ -83,7 +84,7 @@ class App extends Component {
         </div>
           <div>
             {
-              this.state.showForm ? <PostForm /> : null
+              this.state.showForm ? <PostForm action={this.toggleButt}/> : null
             }
           </div>
           <div className="container">
