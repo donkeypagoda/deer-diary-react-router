@@ -30,7 +30,6 @@ class App extends Component {
 
     this.toggleButt = this.toggleButt.bind(this)
     this.addPost = this.addPost.bind(this)
-
     this.state = {
       postList: [
         {
@@ -57,6 +56,15 @@ class App extends Component {
       showPosts: true
     }
   }
+
+  getPosts = async () => {
+    const response = await fetch('/blog_posts/');
+    const body = await response.json();
+
+    if (response.status !== 200) throw Error(body.message);
+
+    console.log(body)
+  };
 
   toggleButt(){
     this.setState({
