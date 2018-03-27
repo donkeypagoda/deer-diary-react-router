@@ -30,7 +30,7 @@ class App extends Component {
 
     this.toggleButt = this.toggleButt.bind(this)
     this.addPost = this.addPost.bind(this)
-    this.getPosts = this.getPosts.bind(this)
+    this.setStateAsync = this.setStateAsync.bind(this)
 
     this.state = {
       postList: [],
@@ -40,16 +40,21 @@ class App extends Component {
     }
   }
 
-  getPosts = async () => {
-    const response = await fetch('http://localhost:5000/blog_posts');
-    const body = await response.json();
-
-    if (response.status !== 200) throw Error(body.message);
-
-    await this.setState({
-      postList: body
+  //////This is a little confusing to me
+  setStateAsync(state){
+    return new Promise(res => {
+      this.setState(state, res)
     })
-  };
+  }
+  async componentDidMount() {
+    const res = await fetch('http://localhost:5000/blog_posts');
+    const {posts} = await res.json();
+
+    await this.setStateAsync({
+      postList: posts
+    })
+  }
+////////
 
   toggleButt(){
     this.setState({
