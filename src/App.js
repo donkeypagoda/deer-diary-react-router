@@ -31,29 +31,9 @@ class App extends Component {
     this.toggleButt = this.toggleButt.bind(this)
     this.addPost = this.addPost.bind(this)
     this.getPosts = this.getPosts.bind(this)
-    this.currentBlogList = this.getPosts()
-    console.log(this.currentBlogList)
+
     this.state = {
-      postList: [
-        {
-          id: 0,
-          timestamp: '2012-02-18 14:28:32',
-          title: "I ate the berries",
-          content: "berries are so good and yummy and I like them because I am a deer"
-        },
-        {
-          id: 1,
-          timestamp: '2012-02-20 16:28:32',
-          title: "There is a bear named Rodzher in the forest",
-          content: "watch out cause if he catches you he will make you listen to all of his puns and also he likes venison"
-        },
-        {
-          id: 2,
-          timestamp: '2014-02-25 12:28:32',
-          title: "Do deer like tacos?",
-          content: "of course they do, everyone loves tacos what a silly question, what are you a bear???"
-        }
-      ],
+      postList: [],
       showForm: false,
       showButt: true,
       showPosts: true
@@ -65,8 +45,10 @@ class App extends Component {
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
-    
-    return body
+
+    await this.setState({
+      postList: body
+    })
   };
 
   toggleButt(){
