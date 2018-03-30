@@ -7,7 +7,6 @@ class PostForm extends Component {
     console.log(e.target[0].value)
     console.log(e.target[1].value)
     let newPost = {
-      // id: 0,
       timestamp: Math.floor(Date.now() / 1000),
       title: e.target[0].value,
       content: e.target[1].value

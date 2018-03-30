@@ -39,7 +39,6 @@ class App extends Component {
   async componentDidMount() {
     const res = await fetch('http://localhost:5000/blog_posts');
     const {posts} = await res.json();
-    console.log(posts)
 
     this.setState({
       postList: posts
@@ -57,7 +56,6 @@ class App extends Component {
   async addPost(newPost){
     const res = await ('http://localhost:5000/blog_posts', {method: "POST", body: newPost});
     const post = await res;
-    console.log(post.body.title)
     let current = this.state.postList
     current.push(post.body)
     this.setState({
@@ -70,7 +68,7 @@ class App extends Component {
 
   render() {
     let postList = []
-    console.log(this.state)
+    console.log(this.state.postList)
     this.state.postList.forEach( post => {
       postList.push(<ListPosts key={post.id} title={post.title} content={post.content} date={post.timestamp}/>)
     })
