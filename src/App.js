@@ -56,15 +56,16 @@ class App extends Component {
 
   async addPost(newPost){
     const res = await ('http://localhost:5000/blog_posts', {method: "POST", body: newPost});
-    const {post} = await res.json();
-    console.log(post)
-    // this.setState()
-    // this.setState({
-    //   postList: post,
-    //   showForm: !this.state.showForm,
-    //   showButt: !this.state.showButt,
-    //   showPosts: !this.state.showPosts
-    // })
+    const post = await res;
+    console.log(post.body.title)
+    let current = this.state.postList
+    current.push(post.body)
+    this.setState({
+      postList: current,
+      showForm: !this.state.showForm,
+      showButt: !this.state.showButt,
+      showPosts: !this.state.showPosts
+    })
   }
 
   render() {
