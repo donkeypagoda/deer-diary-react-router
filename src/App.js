@@ -54,7 +54,15 @@ class App extends Component {
   }
 
   async addPost(newPost){
-    const res = await fetch('http://localhost:5000/blog_posts', {method: "POST", body: newPost});
+    const res = await fetch('http://localhost:5000/blog_posts',
+    {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newPost)
+    })
     const post = await res.json();
     // console.log(post)
     const result = await fetch('http://localhost:5000/blog_posts');
