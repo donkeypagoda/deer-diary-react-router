@@ -30,7 +30,7 @@ class App extends Component {
 
     this.toggleButt = this.toggleButt.bind(this)
     this.addPost = this.addPost.bind(this)
-    this.setStateAsync = this.setStateAsync.bind(this)
+    // this.setStateAsync = this.setStateAsync.bind(this)
 
     this.state = {
       postList: [],
@@ -41,16 +41,17 @@ class App extends Component {
   }
 
   //////This is a little confusing to me
-  setStateAsync(state){
-    return new Promise(res => {
-      this.setState(state, res)
-    })
-  }
+  // setStateAsync(state){
+  //   return new Promise(res => {
+  //     this.setState(state, res)
+  //   })
+  // }
   async componentDidMount() {
     const res = await fetch('http://localhost:5000/blog_posts');
     const {posts} = await res.json();
+    console.log(posts)
 
-    await this.setStateAsync({
+    this.setState({
       postList: posts
     })
   }
@@ -78,7 +79,9 @@ class App extends Component {
 
   render() {
     let postList = []
+    console.log(this.state)
     this.state.postList.forEach( post => {
+
       postList.push(<ListPosts key={post.id} title={post.title} content={post.content} date={post.timestamp}/>)
     })
 
