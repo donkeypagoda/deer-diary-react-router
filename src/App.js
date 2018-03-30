@@ -21,8 +21,6 @@ function ListPosts(props){
   )
 }
 
-
-
 class App extends Component {
   constructor() {
     super()
@@ -56,23 +54,23 @@ class App extends Component {
     })
   }
 
-  addPost(newPost){
-    let current = this.state.postList
-    newPost.id = this.state.postList.length
-    current.push(newPost)
-    this.setState({
-      postList: current,
-      showForm: !this.state.showForm,
-      showButt: !this.state.showButt,
-      showPosts: !this.state.showPosts
-    })
+  async addPost(newPost){
+    const res = await ('http://localhost:5000/blog_posts', {method: "POST", body: newPost});
+    const {post} = await res.json();
+    console.log(post)
+    // this.setState()
+    // this.setState({
+    //   postList: post,
+    //   showForm: !this.state.showForm,
+    //   showButt: !this.state.showButt,
+    //   showPosts: !this.state.showPosts
+    // })
   }
 
   render() {
     let postList = []
     console.log(this.state)
     this.state.postList.forEach( post => {
-
       postList.push(<ListPosts key={post.id} title={post.title} content={post.content} date={post.timestamp}/>)
     })
 
