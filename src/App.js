@@ -16,7 +16,6 @@ function ListPosts(props){
         <div className="mb-1">
           {props.content}
         </div>
-
       </div>
     </div>
   )
@@ -30,7 +29,6 @@ class App extends Component {
 
     this.toggleButt = this.toggleButt.bind(this)
     this.addPost = this.addPost.bind(this)
-    // this.setStateAsync = this.setStateAsync.bind(this)
 
     this.state = {
       postList: [],
@@ -40,12 +38,6 @@ class App extends Component {
     }
   }
 
-  //////This is a little confusing to me
-  // setStateAsync(state){
-  //   return new Promise(res => {
-  //     this.setState(state, res)
-  //   })
-  // }
   async componentDidMount() {
     const res = await fetch('http://localhost:5000/blog_posts');
     const {posts} = await res.json();
@@ -55,7 +47,6 @@ class App extends Component {
       postList: posts
     })
   }
-////////
 
   toggleButt(){
     this.setState({
