@@ -5,7 +5,6 @@ class PostForm extends Component {
   submitPost = (e, props) => {
     e.preventDefault()
     let newPost = {
-      timestamp: Math.floor(Date.now() / 1000),
       title: e.target[0].value,
       content: e.target[1].value
     }
