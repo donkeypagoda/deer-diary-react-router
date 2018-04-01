@@ -11,7 +11,7 @@ function ListPosts(props){
           <h5 className="mb-1">
             {props.title}
           </h5>
-          <small>{moment(props.created_at).format("MMM Do YY")}</small>
+          <small>{moment(props.date).format("MMM Do YY")}</small>
         </div>
         <div className="mb-1">
           {props.content}
