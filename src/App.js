@@ -11,7 +11,7 @@ function ListPosts(props){
           <h5 className="mb-1">
             {props.title}
           </h5>
-          <small>{moment(props.timestamp).format("MMM Do YY")}</small>
+          <small>{moment(props.created_at).format("MMM Do YY")}</small>
         </div>
         <div className="mb-1">
           {props.content}
@@ -79,7 +79,7 @@ class App extends Component {
     let postList = []
     console.log(this.state.postList)
     this.state.postList.forEach( post => {
-      postList.push(<ListPosts key={post.id} title={post.title} content={post.content} date={post.timestamp}/>)
+      postList.push(<ListPosts key={post.id} title={post.title} content={post.content} date={post.created_at}/>)
     })
 
     return (
