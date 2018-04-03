@@ -77,7 +77,6 @@ class App extends Component {
   }
 
   async deletePost(id){
-    console.log(id)
     await fetch('http://localhost:5000/blog_posts',
     {
       method: "DELETE",
@@ -89,7 +88,6 @@ class App extends Component {
     });
     const result = await fetch('http://localhost:5000/blog_posts');
     const {posts} = await result.json();
-    console.log(posts)
     this.setState({
       postList: posts
     })
@@ -98,7 +96,6 @@ class App extends Component {
 
   render() {
     let postList = []
-    console.log(this.state.postList)
     this.state.postList.forEach( post => {
       postList.push(<ListPosts key={post.id} title={post.title} content={post.content} date={post.created_at} id={post.id} action={this.deletePost} />)
     })
