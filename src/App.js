@@ -87,7 +87,13 @@ class App extends Component {
       },
       body: JSON.stringify({id})
     });
-    this.componentDidMount()
+    const result = await fetch('http://localhost:5000/blog_posts');
+    const {posts} = await result.json();
+    console.log(posts)
+    this.setState({
+      postList: posts
+    })
+
   }
 
   render() {
