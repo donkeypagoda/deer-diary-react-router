@@ -72,7 +72,19 @@ class App extends Component {
       showButt: !this.state.showButt,
       showPosts: !this.state.showPosts
     })
+  }
 
+  deletePost(id){
+    const ret = await fetch('http://localhost:5000/blog_posts',
+    {
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: id
+    });
+    console.log(ret)
   }
 
   render() {
