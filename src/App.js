@@ -16,6 +16,7 @@ function ListPosts(props){
         <div className="mb-1">
           {props.content}
         </div>
+        <button type="button" className="btn btn-secondary" onClick={() => props.action(props.id)}>Delete Post</button>
       </div>
     </div>
   )
@@ -27,6 +28,7 @@ class App extends Component {
 
     this.toggleButt = this.toggleButt.bind(this)
     this.addPost = this.addPost.bind(this)
+    this.deletePost = this.deletePost.bind(this)
 
     this.state = {
       postList: [],
@@ -74,24 +76,25 @@ class App extends Component {
     })
   }
 
-  deletePost(id){
-    const ret = await fetch('http://localhost:5000/blog_posts',
+  async deletePost(id){
+    console.log(id)
+    await fetch('http://localhost:5000/blog_posts',
     {
       method: "DELETE",
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: id
+      body: JSON.stringify({id})
     });
-    console.log(ret)
+    this.componentDidMount()
   }
 
   render() {
     let postList = []
     console.log(this.state.postList)
     this.state.postList.forEach( post => {
-      postList.push(<ListPosts key={post.id} title={post.title} content={post.content} date={post.created_at}/>)
+      postList.push(<ListPosts key={post.id} title={post.title} content={post.content} date={post.created_at} id={post.id} action={this.deletePost} />)
     })
 
     return (
