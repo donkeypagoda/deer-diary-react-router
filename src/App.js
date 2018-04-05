@@ -112,6 +112,8 @@ class App extends Component {
             </div>
           </div>
         </div>
+        <BrowserRouter>
+        </BrowserRouter>
           <div>
             {
               this.state.showForm ? <PostForm postFunc={this.addPost} action={this.toggleButt}/> : null
