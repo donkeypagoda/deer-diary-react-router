@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './App.css';
 import PostForm from './components/postForm'
-import ListPosts from '.components/listPosts'
-import moment from 'moment'
+import ListPosts from './components/listPosts'
 
 
 class App extends Component {

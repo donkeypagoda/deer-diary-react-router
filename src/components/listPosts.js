@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import moment from 'moment'
 
 class ListPosts extends Component{
 
@@ -10,14 +11,14 @@ class ListPosts extends Component{
         <div className="list-group-item flex-column align-items-start">
           <div className="d-flex w-100 justify-content-between">
             <h5 className="mb-1">
-              {props.title}
+              {this.props.title}
             </h5>
-            <small>{moment(props.date).format("MMM Do YY")}</small>
+            <small>{moment(this.props.date).format("MMM Do YY")}</small>
           </div>
           <div className="mb-1">
-            {props.content}
+            {this.props.content}
             </div>
-          <button type="button" className="btn btn-secondary" onClick={() => props.action(props.id)}>Delete Post</button>
+          <button type="button" className="btn btn-secondary" onClick={() => this.props.action(this.props.id)}>Delete Post</button>
         </div>
       </div>
     )
