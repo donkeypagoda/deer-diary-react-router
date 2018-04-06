@@ -2,26 +2,9 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './App.css';
 import PostForm from './components/postForm'
+import ListPosts from '.components/listPosts'
 import moment from 'moment'
 
-function ListPosts(props){
-  return (
-    <div className='list-group'>
-      <div className="list-group-item flex-column align-items-start">
-        <div className="d-flex w-100 justify-content-between">
-          <h5 className="mb-1">
-            {props.title}
-          </h5>
-          <small>{moment(props.date).format("MMM Do YY")}</small>
-        </div>
-        <div className="mb-1">
-          {props.content}
-        </div>
-        <button type="button" className="btn btn-secondary" onClick={() => props.action(props.id)}>Delete Post</button>
-      </div>
-    </div>
-  )
-}
 
 class App extends Component {
   constructor() {
@@ -114,6 +97,7 @@ class App extends Component {
         </div>
         <BrowserRouter>
           <Switch>
+
           </Switch>
         </BrowserRouter>
           <div>
