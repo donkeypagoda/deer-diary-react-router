@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom'
 import moment from 'moment'
 
 class ListPosts extends Component{
-
-
   render(){
     return (
       <div className='list-group'>
