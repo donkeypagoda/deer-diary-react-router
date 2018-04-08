@@ -13,9 +13,9 @@ class ListPosts extends Component{
     })
 
   render(){
-    let postList = []
-    this.state.postList.forEach( post => {
-      postList.push(<ListPosts key={post.id} title={post.title} content={post.content} date={post.created_at} id={post.id} action={this.deletePost} />)
+    let shortList= []
+    this.state.postList.map( post => {
+      shortList.push(<ListPosts key={post.id} title={post.title} content={post.content} date={post.created_at} id={post.id} action={this.deletePost} />)
     })
     return (
       <div className='list-group'>
@@ -27,9 +27,8 @@ class ListPosts extends Component{
             <small>{moment(this.props.date).format("MMM Do YY")}</small>
           </div>
           <div>
-            <ShortPost postContent={this.props.content} postId={this.props.id}/>
+            <ShortPost postContent={this.props.content} postId={this.props.id} postDate={this.props.created_at} postTitle={this.props.postTitle}/>
           </div>
-          <button type="button" className="btn btn-secondary" onClick={() => this.props.action(this.props.id)}>Delete Post</button>
         </div>
       </div>
     )
@@ -38,3 +37,5 @@ class ListPosts extends Component{
 
 
 export default ListPosts
+
+// <button type="button" className="btn btn-secondary" onClick={() => this.props.action(this.props.id)}>Delete Post</button>

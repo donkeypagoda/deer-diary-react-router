@@ -8,7 +8,23 @@ class PostForm extends Component {
       title: e.target[0].value,
       content: e.target[1].value
     }
-    this.props.postFunc(newPost)
+    async addPost(newPost){
+      await fetch('http://localhost:5000/blog_posts',
+      {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newPost)
+      });
+      const result = await fetch('http://localhost:5000/blog_posts');
+      const {posts} = await result.json();
+
+      this.setState({
+        postList: posts
+      })
+    }
   }
 
   render(){
