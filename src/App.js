@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import './App.css';
 import PostForm from './components/postForm'
 import ListPosts from './components/listPosts'
+import SinglePost from './components/singlePost'
 
 
 class App extends Component {
@@ -96,6 +97,9 @@ class App extends Component {
         </div>
         <BrowserRouter>
           <Switch>
+            <Route path='/blogPost/new' component={postForm} />
+            <Route path='' component={listPosts} />
+            <Route path='singlePost/:id' component={singlePost} />
 
           </Switch>
         </BrowserRouter>

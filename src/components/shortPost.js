@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Link from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import moment from 'moment'
 
 class ShortPost extends Component{
@@ -16,6 +16,9 @@ class ShortPost extends Component{
     return(
       <div className="mb-1">
         {this.shorten(this.props.postContent)}
+        <p>
+          <Link to={`/singlePost/${this.props.id}`}>Continue Reading here -></Link>
+        </p>
       </div>
     )
   }
