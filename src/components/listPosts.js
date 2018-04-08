@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import moment from 'moment'
+import ShortPost from './shortPost.js'
 
 class ListPosts extends Component{
   render(){
@@ -13,17 +14,15 @@ class ListPosts extends Component{
             </h5>
             <small>{moment(this.props.date).format("MMM Do YY")}</small>
           </div>
-          <div className="mb-1">
-            {this.props.content}
-            </div>
+          <div>
+            <ShortPost postContent={this.props.content}/>
+          </div>
           <button type="button" className="btn btn-secondary" onClick={() => this.props.action(this.props.id)}>Delete Post</button>
         </div>
       </div>
     )
   }
 }
-
-
 
 
 export default ListPosts

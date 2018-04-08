@@ -5,7 +5,9 @@ import moment from 'moment'
 class ShortPost extends Component{
   render(){
     return(
-      
+      <div className="mb-1">
+        {this.props.postContent}
+      </div>
     )
   }
 }
