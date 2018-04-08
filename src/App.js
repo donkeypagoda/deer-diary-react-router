@@ -11,21 +11,21 @@ class App extends Component {
     super()
     this.deletePost = this.deletePost.bind(this)
     this.getPosts = this.getPosts.bind(this)
-    
+
     this.state = {
       postList: [],
     }
   }
-  getPosts(){
-    async componentDidMount() {
-      const res = await fetch('http://localhost:5000/blog_posts');
-      const {posts} = await res.json();
 
-      this.setState({
-        postList: posts
-      })
-    }
+  async componentDidMount() {
+    const res = await fetch('http://localhost:5000/blog_posts');
+    const {posts} = await res.json();
+
+    this.setState({
+      postList: posts
+    })
   }
+
 
   async deletePost(id){
     await fetch('http://localhost:5000/blog_posts',
@@ -61,7 +61,7 @@ class App extends Component {
           <Switch>
             <Route path='/blogPost/new' component={PostForm} />
             <Route path='singlePost/:id' component={SinglePost} />
-            <Route path='/' component={ListPosts} />
+            <Route path='/' render={()=><ListPosts postList={this.state.postList} />} />
           </Switch>
         </BrowserRouter>
 
