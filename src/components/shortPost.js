@@ -3,10 +3,19 @@ import Link from 'react-router-dom'
 import moment from 'moment'
 
 class ShortPost extends Component{
+  constructor(){
+    super()
+    this.shorten = this.shorten.bind(this)
+  }
+  shorten(fulltext){
+    return fulltext.slice(0, 15)
+  }
+
+
   render(){
     return(
       <div className="mb-1">
-        {this.props.postContent}
+        {this.shorten(this.props.postContent)}
       </div>
     )
   }
