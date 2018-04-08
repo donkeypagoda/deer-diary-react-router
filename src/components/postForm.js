@@ -2,12 +2,6 @@ import React, {Component} from 'react'
 
 class PostForm extends Component {
 
-  submitPost = (e, props) => {
-    e.preventDefault()
-    let newPost = {
-      title: e.target[0].value,
-      content: e.target[1].value
-    }
     async addPost(newPost){
       await fetch('http://localhost:5000/blog_posts',
       {
@@ -25,7 +19,14 @@ class PostForm extends Component {
         postList: posts
       })
     }
-  }
+    submitPost = (e, props) => {
+      e.preventDefault()
+      let newPost = {
+        title: e.target[0].value,
+        content: e.target[1].value
+      }
+      this.addPost(newPost)
+    }
 
   render(){
     return (

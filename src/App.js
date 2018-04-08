@@ -9,33 +9,22 @@ import SinglePost from './components/singlePost'
 class App extends Component {
   constructor() {
     super()
-
+    this.deletePost = this.deletePost.bind(this)
+    this.getPosts = this.getPosts.bind(this)
+    
     this.state = {
       postList: [],
     }
   }
+  getPosts(){
+    async componentDidMount() {
+      const res = await fetch('http://localhost:5000/blog_posts');
+      const {posts} = await res.json();
 
-  }
-
-  async addPost(newPost){
-    await fetch('http://localhost:5000/blog_posts',
-    {
-      method: "POST",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(newPost)
-    });
-    const result = await fetch('http://localhost:5000/blog_posts');
-    const {posts} = await result.json();
-
-    this.setState({
-      postList: posts,
-      showForm: !this.state.showForm,
-      showButt: !this.state.showButt,
-      showPosts: !this.state.showPosts
-    })
+      this.setState({
+        postList: posts
+      })
+    }
   }
 
   async deletePost(id){
@@ -57,7 +46,6 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <div className="App">
         <div className="jumbotron">

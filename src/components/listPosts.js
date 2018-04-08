@@ -4,18 +4,11 @@ import moment from 'moment'
 import ShortPost from './shortPost.js'
 
 class ListPosts extends Component{
-  async componentDidMount() {
-    const res = await fetch('http://localhost:5000/blog_posts');
-    const {posts} = await res.json();
-
-    this.setState({
-      postList: posts
-    })
 
   render(){
     let shortList= []
-    this.state.postList.map( post => {
-      shortList.push(<ListPosts key={post.id} title={post.title} content={post.content} date={post.created_at} id={post.id} action={this.deletePost} />)
+    props.postList.map( post => {
+      shortList.push(<ShortPost key={post.id} postContent={post.content} postId={post.id} postDate={post.created_at} postTitle={post.postTitle}/>)
     })
     return (
       <div className='list-group'>
@@ -27,7 +20,7 @@ class ListPosts extends Component{
             <small>{moment(this.props.date).format("MMM Do YY")}</small>
           </div>
           <div>
-            <ShortPost postContent={this.props.content} postId={this.props.id} postDate={this.props.created_at} postTitle={this.props.postTitle}/>
+            {shortList}
           </div>
         </div>
       </div>
