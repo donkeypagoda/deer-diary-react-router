@@ -17,7 +17,7 @@ class ShortPost extends Component{
       <div className="mb-1">
         {this.shorten(this.props.postContent)}
         <p>
-          <Link to={`/singlePost/${this.props.id}`}>Continue Reading here -></Link>
+          <Link to={`/singlePost/${this.props.postId}`}>Continue Reading here -></Link>
         </p>
       </div>
     )

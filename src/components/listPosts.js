@@ -4,7 +4,19 @@ import moment from 'moment'
 import ShortPost from './shortPost.js'
 
 class ListPosts extends Component{
+  async componentDidMount() {
+    const res = await fetch('http://localhost:5000/blog_posts');
+    const {posts} = await res.json();
+
+    this.setState({
+      postList: posts
+    })
+
   render(){
+    let postList = []
+    this.state.postList.forEach( post => {
+      postList.push(<ListPosts key={post.id} title={post.title} content={post.content} date={post.created_at} id={post.id} action={this.deletePost} />)
+    })
     return (
       <div className='list-group'>
         <div className="list-group-item flex-column align-items-start">
