@@ -8,7 +8,7 @@ class ListPosts extends Component{
   render(){
     let shortList= []
     this.props.postList.map( post => {
-      shortList.push(<ShortPost key={post.id} postContent={post.content} postId={post.id} postDate={post.created_at} postTitle={post.postTitle}/>)
+      shortList.push(<ShortPost key={post.id} postContent={post.content} postId={post.id} postDate={post.created_at} postTitle={post.title}/>)
     })
     return (
       <div className='list-group'>

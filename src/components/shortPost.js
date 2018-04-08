@@ -8,7 +8,7 @@ class ShortPost extends Component{
     this.shorten = this.shorten.bind(this)
   }
   shorten(fulltext){
-    return fulltext.slice(0, 15)
+    return fulltext.slice(0, 30)
   }
 
 
