@@ -10,7 +10,6 @@ class App extends Component {
   constructor() {
     super()
     this.deletePost = this.deletePost.bind(this)
-    this.getPosts = this.getPosts.bind(this)
 
     this.state = {
       postList: [],
