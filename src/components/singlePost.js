@@ -3,9 +3,8 @@ import moment from 'moment'
 import {Link} from 'react-router-dom'
 
 class SinglePost extends Component {
-  componentDidMount(){
-    const post = this.props.singleFunc(this.props.match.params.id)
-    this.props.post = post
+  async componentDidMount(){
+    const res = await fetch(`http://localhost:5000/blog_posts/${this.props.match.params.id}`);
   }
   render(){
     console.log(this.props)
