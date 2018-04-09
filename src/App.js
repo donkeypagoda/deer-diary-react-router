@@ -44,7 +44,7 @@ class App extends Component {
   }
   getSingle(id){
     const res = fetch(`http://localhost:5000/blog_posts/${id}`);
-    return {res.json()};
+    return res;
   }
 
   render() {
@@ -62,7 +62,7 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route path='/blogPost/new' component={PostForm} />
-            <Route path='/singlePost/:id' render={()=><SinglePost singleFunc={this.state.getSingle} />
+            <Route path='/singlePost/:id' render={()=><SinglePost singleFunc={this.state.getSingle} />} />
             <Route path='/' render={()=><ListPosts postList={this.state.postList} />} />
           </Switch>
         </BrowserRouter>
