@@ -11,10 +11,12 @@ class ListPosts extends Component{
       shortList.push(<ShortPost key={post.id} postContent={post.content} postId={post.id} postDate={post.created_at} postTitle={post.title}/>)
     })
     return (
-      <div className='list-group'>
-        <div className="list-group-item flex-column align-items-start">
-          <div>
-            {shortList}
+      <div className='container'>
+        <div className="row">
+          <div className="col-md-12">
+            <div>
+              {shortList}
+            </div>
           </div>
         </div>
       </div>
