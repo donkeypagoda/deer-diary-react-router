@@ -3,8 +3,9 @@ import moment from 'moment'
 import {Link} from 'react-router-dom'
 
 class SinglePost extends Component {
-
+  async componentDidMount
   render(){
+    console.log(this.props)
     return(
       <div className='list-group'>
         <div className="list-group-item flex-column align-items-start">

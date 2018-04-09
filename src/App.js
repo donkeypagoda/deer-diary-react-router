@@ -10,7 +10,7 @@ class App extends Component {
   constructor() {
     super()
     this.deletePost = this.deletePost.bind(this)
-
+    this.getSingle = this.getSingle.bind(this)
     this.state = {
       postList: [],
     }
@@ -24,7 +24,6 @@ class App extends Component {
       postList: posts
     })
   }
-
 
   async deletePost(id){
     await fetch('http://localhost:5000/blog_posts',
@@ -43,6 +42,10 @@ class App extends Component {
     })
 
   }
+  getSingle(id){
+    const res = fetch(`http://localhost:5000/blog_posts/${id}`);
+    return {res.json()};
+  }
 
   render() {
     return (
@@ -59,7 +62,7 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route path='/blogPost/new' component={PostForm} />
-            <Route path='singlePost/:id' component={SinglePost} />
+            <Route path='/singlePost/:id' render={()=><SinglePost singleFunc={this.state.getSingle} />
             <Route path='/' render={()=><ListPosts postList={this.state.postList} />} />
           </Switch>
         </BrowserRouter>
@@ -70,37 +73,3 @@ class App extends Component {
 }
 
 export default App;
-
-// <div>
-//   {
-//     this.state.showForm ? <PostForm postFunc={this.addPost} action={this.toggleButt}/> : null
-//   }
-// </div>
-// <div className="container">
-//   <div className="row lift">
-//     <div className="col-md-12">
-//       <div className="float-right">
-//         {
-//           this.state.showButt ? <button type="button" className="btn btn-secondary" onClick={() => this.toggleButt()}>New Entry</button> : null
-//         }
-//       </div>
-//     </div>
-//   </div>
-// </div>
-// <div className="container">
-//   <div className="row">
-//     <div className="col-md-12">
-//       {
-//         this.state.showPosts ? postList : null
-//       }
-//     </div>
-//   </div>
-// </div>
-
-// async componentDidMount() {
-//   const res = await fetch('http://localhost:5000/blog_posts');
-//   const {posts} = await res.json();
-//
-//   this.setState({
-//     postList: posts
-//   })
