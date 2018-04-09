@@ -3,7 +3,10 @@ import moment from 'moment'
 import {Link} from 'react-router-dom'
 
 class SinglePost extends Component {
-  async componentDidMount
+  componentDidMount(){
+    const post = this.props.singleFunc(this.props.match.params.id)
+    this.props.post = post
+  }
   render(){
     console.log(this.props)
     return(
