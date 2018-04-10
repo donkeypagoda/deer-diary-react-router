@@ -9,11 +9,11 @@ class SinglePost extends Component {
   }
 
   componentDidMount(){
-    //this.props.getPost(this.props.match.params.id).then(post => this.post = post)
+    // this.props.getSingle(this.props.match.params.id).then(post => this.post = post)
   }
 
   render(){
-    console.log(this.props.getPost)
+    console.log(this.props)
     return(
       <div className='list-group'>
         <div className="list-group-item flex-column align-items-start">

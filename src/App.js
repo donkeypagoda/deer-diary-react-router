@@ -62,7 +62,7 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route path='/blogPost/new' component={PostForm} />
-            <Route path='/singlePost/:id' render={routeProps => <SinglePost getPost={this.getSingle} {...routeProps} />} />
+            <Route path='/singlePost/:id' render={(routeProps, props) => <SinglePost getSingle={this.getSingle} {...props} {...routeProps} />} />
             <Route path='/' render={() => <ListPosts postList={this.state.postList} />} />
           </Switch>
         </BrowserRouter>
