@@ -44,7 +44,7 @@ class App extends Component {
   }
   async getSingle(id){
     const res = await fetch(`http://localhost:5000/blog_posts/${id}`);
-    return res;
+    return res.json();
   }
 
   render() {
@@ -62,8 +62,8 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route path='/blogPost/new' component={PostForm} />
-            <Route path='/singlePost/:id' component={SinglePost} />
-            <Route path='/' render={()=><ListPosts postList={this.state.postList} />} />
+            <Route path='/singlePost/:id' render={routeProps => <SinglePost getPost={this.getSingle} {...routeProps} />} />
+            <Route path='/' render={() => <ListPosts postList={this.state.postList} />} />
           </Switch>
         </BrowserRouter>
 

@@ -3,11 +3,12 @@ import moment from 'moment'
 import {Link} from 'react-router-dom'
 
 class SinglePost extends Component {
-  async componentDidMount(){
-    const res = await fetch(`http://localhost:5000/blog_posts/${this.props.match.params.id}`);
+  componentDidMount(){
+
   }
+
   render(){
-    console.log(this.props)
+    let post = this.props.getSingle(this.props.match.params.id)
     return(
       <div className='list-group'>
         <div className="list-group-item flex-column align-items-start">
@@ -29,3 +30,4 @@ class SinglePost extends Component {
 
 
 export default SinglePost
+//    let post = this.props.getSingle()
