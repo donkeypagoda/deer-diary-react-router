@@ -15,6 +15,9 @@ class SinglePost extends Component {
   render(){
     console.log(this.props.getSingle)
     console.log(this.post)
+    const { post } = this.post
+
+    if(!post) return <div>Loading...</div>
     return(
       <div className='list-group'>
         <div className="list-group-item flex-column align-items-start">
