@@ -7,12 +7,13 @@ class SinglePost extends Component {
     super()
     this.post = {}
   }
-  async componentDidMount(){
-    this.post = await this.props.getPost(this.props.match.params.id)
+
+  componentDidMount(){
+    //this.props.getPost(this.props.match.params.id).then(post => this.post = post)
   }
 
   render(){
-    console.log(this.post)
+    console.log(this.props.getPost)
     return(
       <div className='list-group'>
         <div className="list-group-item flex-column align-items-start">
@@ -34,4 +35,3 @@ class SinglePost extends Component {
 
 
 export default SinglePost
-//    let post = this.props.getSingle()
