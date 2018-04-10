@@ -8,8 +8,8 @@ class SinglePost extends Component {
     this.post = {}
   }
 
-  async componentDidMount(){
-    this.post = await this.props.getSingle(this.props.match.params.id)
+  componentDidMount(){
+    this.post = this.props.getSingle(this.props.match.params.id)
   }
 
   render(){
