@@ -44,7 +44,7 @@ class App extends Component {
   }
   async getSingle(id){
     const res = await fetch(`http://localhost:5000/blog_posts/${id}`);
-    return res.json();
+    return res;
   }
 
   render() {
