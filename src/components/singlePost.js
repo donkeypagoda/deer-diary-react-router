@@ -8,12 +8,13 @@ class SinglePost extends Component {
     this.post = {}
   }
 
-  componentDidMount(){
-    // this.props.getSingle(this.props.match.params.id).then(post => this.post = post)
+  async componentDidMount(){
+    this.post = await this.props.getSingle(this.props.match.params.id)
   }
 
   render(){
-    console.log(this.props)
+    console.log(this.props.getSingle)
+    console.log(this.post)
     return(
       <div className='list-group'>
         <div className="list-group-item flex-column align-items-start">

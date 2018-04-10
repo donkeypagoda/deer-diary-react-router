@@ -42,9 +42,10 @@ class App extends Component {
     })
 
   }
-  getSingle(id){
-    fetch(`http://localhost:5000/blog_posts/${id}`)
-    .then(post => {return post})
+  async getSingle(id){
+    const res = await fetch(`http://localhost:5000/blog_posts/${id}`)
+    const {post} = await res.json()
+    return {post}
   }
 
   render() {
