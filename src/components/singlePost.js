@@ -5,28 +5,34 @@ import {Link} from 'react-router-dom'
 class SinglePost extends Component {
   constructor(){
     super()
-    this.post = {}
+    this.state = {
+      post: {}
+    }
   }
 
-  componentDidMount(){
-    this.props.getSingle(this.props.match.params.id).then(post => this.post = post)
+  async componentDidMount(){
+      const res = await fetch(`http://localhost:5000/blog_posts/${this.props.match.params.id}`)
+      const {post} = await res.json()
+      console.log(post[0])
+
+    this.setState({post: post[0]})
 
   }
 
   render(){
     console.log(this.post)
-    if (this.post === undefined) return <div>Loading...</div>
+    if (this.state.post.title === undefined) return <div>Loading...</div>
     return(
       <div className='list-group'>
         <div className="list-group-item flex-column align-items-start">
           <div className="d-flex w-100 justify-content-between">
             <h5 className="mb-1">
-              {this.post.title}
+              {this.state.post.title}
             </h5>
-            <small>{moment(this.post.created_at).format("MMM Do YY")}</small>
+            <small>{moment(this.state.post.created_at).format("MMM Do YY")}</small>
           </div>
           <div className="mb-1">
-            {this.post.content}
+            {this.state.post.content}
           </div>
           <button type="button" className="btn btn-secondary" onClick={() => this.props.action(this.props.id)}>Delete Post</button>
         </div>

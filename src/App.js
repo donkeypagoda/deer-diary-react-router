@@ -10,7 +10,7 @@ class App extends Component {
   constructor() {
     super()
     this.deletePost = this.deletePost.bind(this)
-    this.getSingle = this.getSingle.bind(this)
+
     this.state = {
       postList: [],
     }
@@ -42,12 +42,6 @@ class App extends Component {
     })
 
   }
-  async getSingle(id){
-    const res = await fetch(`http://localhost:5000/blog_posts/${id}`)
-    const {post} = await res.json()
-    console.log(post[0])
-    return post[0]
-  }
 
   render() {
     return (
@@ -64,7 +58,7 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route path='/blogPost/new' component={PostForm} />
-            <Route path='/singlePost/:id' render={(routeProps, props) => <SinglePost getSingle={this.getSingle} {...props} {...routeProps} />} />
+            <Route path='/singlePost/:id' render={(routeProps, props) => <SinglePost {...props} {...routeProps} />} />
             <Route path='/' render={() => <ListPosts postList={this.state.postList} />} />
           </Switch>
         </BrowserRouter>
