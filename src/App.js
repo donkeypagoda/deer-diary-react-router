@@ -46,7 +46,7 @@ class App extends Component {
     const res = await fetch(`http://localhost:5000/blog_posts/${id}`)
     const {post} = await res.json()
     console.log(post[0])
-    return post
+    return post[0]
   }
 
   render() {

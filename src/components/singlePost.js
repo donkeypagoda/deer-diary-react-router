@@ -9,13 +9,13 @@ class SinglePost extends Component {
   }
 
   componentDidMount(){
-    this.post = this.props.getSingle(this.props.match.params.id).then(post => this.post = post[0])
+    this.props.getSingle(this.props.match.params.id).then(post => this.post = post)
 
   }
 
   render(){
     console.log(this.post)
-    if (this.post.id === undefined) return <div>Loading...</div>
+    if (this.post === undefined) return <div>Loading...</div>
     return(
       <div className='list-group'>
         <div className="list-group-item flex-column align-items-start">
