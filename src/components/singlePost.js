@@ -31,9 +31,7 @@ class SinglePost extends Component {
     });
     const result = await fetch('http://localhost:5000/blog_posts');
     const {posts} = await result.json();
-    this.setState({
-      postList: posts
-    })
+    
   }
 
   render(){
@@ -50,7 +48,7 @@ class SinglePost extends Component {
           <div className="mb-1">
             {this.state.post.content}
           </div>
-          <button type="button" className="btn btn-secondary" onClick={() => this.props.action(this.props.id)}>Delete Post</button>
+          <button type="button" className="btn btn-secondary" onClick={() => this.deletePost(this.state.post.id)}>Delete Post</button>
         </div>
       </div>
     )

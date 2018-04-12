@@ -9,7 +9,6 @@ import SinglePost from './components/singlePost'
 class App extends Component {
   constructor() {
     super()
-    this.deletePost = this.deletePost.bind(this)
 
     this.state = {
       postList: [],
@@ -40,7 +39,7 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route path='/blogPost/new' component={PostForm} />
-            <Route path='/singlePost/:id' render={(routeProps, props) => <SinglePost {...props} {...routeProps} />} />
+            <Route path='/singlePost/:id' component={SinglePost} />
             <Route path='/' render={() => <ListPosts postList={this.state.postList} />} />
           </Switch>
         </BrowserRouter>
