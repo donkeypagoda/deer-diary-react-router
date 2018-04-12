@@ -25,24 +25,6 @@ class App extends Component {
     })
   }
 
-  async deletePost(id){
-    await fetch('http://localhost:5000/blog_posts',
-    {
-      method: "DELETE",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({id})
-    });
-    const result = await fetch('http://localhost:5000/blog_posts');
-    const {posts} = await result.json();
-    this.setState({
-      postList: posts
-    })
-
-  }
-
   render() {
     return (
       <div className="App">

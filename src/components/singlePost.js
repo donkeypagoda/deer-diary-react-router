@@ -11,16 +11,32 @@ class SinglePost extends Component {
   }
 
   async componentDidMount(){
-      const res = await fetch(`http://localhost:5000/blog_posts/${this.props.match.params.id}`)
-      const {post} = await res.json()
-      console.log(post[0])
+    const res = await fetch(`http://localhost:5000/blog_posts/${this.props.match.params.id}`)
+    const {post} = await res.json()
 
-    this.setState({post: post[0]})
+    this.setState({
+      post: post[0]
+    })
+  }
 
+  async deletePost(id){
+    await fetch('http://localhost:5000/blog_posts',
+    {
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({id})
+    });
+    const result = await fetch('http://localhost:5000/blog_posts');
+    const {posts} = await result.json();
+    this.setState({
+      postList: posts
+    })
   }
 
   render(){
-    console.log(this.post)
     if (this.state.post.title === undefined) return <div>Loading...</div>
     return(
       <div className='list-group'>
