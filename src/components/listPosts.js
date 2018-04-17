@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-import moment from 'moment'
 import ShortPost from './shortPost.js'
 
 class ListPosts extends Component{
