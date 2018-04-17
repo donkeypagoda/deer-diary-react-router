@@ -19,6 +19,7 @@ class PostForm extends Component {
       this.setState({
         postList: posts
       })
+      this.props.history.push('/')
     }
     submitPost = (e, props) => {
       e.preventDefault()
