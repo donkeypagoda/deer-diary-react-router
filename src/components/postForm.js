@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 
 class PostForm extends Component {
 
@@ -33,7 +34,9 @@ class PostForm extends Component {
       <div className="container">
         <div className="row lift">
           <div className="col-md-12">
-            <button className="btn btn-secondary" onClick={this.props.action}> Return to Posts</button>
+            <div className='btn btn-secondary'>
+              <Link to='/'>Return to Posts</Link>
+            </div>
           </div>
         </div>
         <div className="row">

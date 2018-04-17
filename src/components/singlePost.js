@@ -29,13 +29,12 @@ class SinglePost extends Component {
       },
       body: JSON.stringify({id})
     });
-    const result = await fetch('http://localhost:5000/blog_posts');
-    const {posts} = await result.json();
-    
+    this.props.history.push('/')
+
   }
 
   render(){
-    if (this.state.post.title === undefined) return <div>Loading...</div>
+    if (this.state.post === undefined) return <div>Loading...</div>
     return(
       <div className='list-group'>
         <div className="list-group-item flex-column align-items-start">

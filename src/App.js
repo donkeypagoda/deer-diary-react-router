@@ -7,22 +7,6 @@ import SinglePost from './components/singlePost'
 
 
 class App extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      postList: [],
-    }
-  }
-
-  async componentDidMount() {
-    const res = await fetch('http://localhost:5000/blog_posts');
-    const {posts} = await res.json();
-
-    this.setState({
-      postList: posts
-    })
-  }
 
   render() {
     return (
@@ -40,7 +24,7 @@ class App extends Component {
           <Switch>
             <Route path='/blogPost/new' component={PostForm} />
             <Route path='/singlePost/:id' component={SinglePost} />
-            <Route path='/' render={() => <ListPosts postList={this.state.postList} />} />
+            <Route path='/' component={ListPosts} />
           </Switch>
         </BrowserRouter>
 
