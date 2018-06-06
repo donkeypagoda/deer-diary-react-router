@@ -49,5 +49,3 @@ class ListPosts extends Component{
 
 
 export default ListPosts
-
-// <button type="button" className="btn btn-secondary" onClick={() => this.props.action(this.props.id)}>Delete Post</button>
