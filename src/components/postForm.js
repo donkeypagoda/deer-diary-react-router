@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 class PostForm extends Component {
 
     async addPost(newPost){
-      await fetch('http://localhost:5000/blog_posts',
+      await fetch('https://deer-diary-server.herokuapp.com/blog_posts',
       {
         method: "POST",
         headers: {
@@ -13,7 +13,7 @@ class PostForm extends Component {
         },
         body: JSON.stringify(newPost)
       });
-      const result = await fetch('http://localhost:5000/blog_posts');
+      const result = await fetch('https://deer-diary-server.herokuapp.com/blog_posts');
       const {posts} = await result.json();
 
       this.setState({

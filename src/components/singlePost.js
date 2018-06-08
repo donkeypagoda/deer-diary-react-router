@@ -11,7 +11,7 @@ class SinglePost extends Component {
   }
 
   async componentDidMount(){
-    const res = await fetch(`http://localhost:5000/blog_posts/${this.props.match.params.id}`)
+    const res = await fetch(`https://deer-diary-server.herokuapp.com/blog_posts/${this.props.match.params.id}`)
     const {post} = await res.json()
 
     this.setState({
@@ -20,7 +20,7 @@ class SinglePost extends Component {
   }
 
   async deletePost(id){
-    await fetch('http://localhost:5000/blog_posts',
+    await fetch('https://deer-diary-server.herokuapp.com/blog_posts',
     {
       method: "DELETE",
       headers: {
