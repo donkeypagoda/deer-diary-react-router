@@ -2,4 +2,4 @@ To better learn React, I re-worked a version of my React blog, but new and impro
 
 I also built a server for it, which is hosted separately on Heroku.
 
-(Current Deployment:)[http://deer-diary.surge.sh/]
+Current Deployment:[DeerDiary](http://deer-diary.surge.sh/)
