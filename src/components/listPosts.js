@@ -11,7 +11,6 @@ class ListPosts extends Component{
   }
 
   async componentDidMount() {
-    console.log
     const res = await fetch('https://deer-diary-server.herokuapp.com/blog_posts');
     const {posts} = await res.json();
 
