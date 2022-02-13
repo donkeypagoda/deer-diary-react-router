@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "ajv": "^6.3.0",
+    "ajv": "^6.12.3",
     "http-proxy-agent": "^2.1.0",
     "https-proxy-agent": "^2.2.1",
     "moment": "^2.21.0",
